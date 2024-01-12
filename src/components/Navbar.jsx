@@ -2,27 +2,23 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { signIn, signOut, useSession } from 'next-auth/react';
 
 function NavBar() {
     const [navbar, setNavBar] = useState(false);
+    const {status} = useSession();
     return (
-        <div className="container-fluid container-w p-0">
-            <div className="navbar navbar-expand-lg bg-dark">
-                <ul>
-                    <li>
-                        <Link href="/">
-                            <h2 className=""></h2>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/about">About Us</Link>
-                    </li>
-                    <li>
-                        <Link href="/blog/post">Blog Post</Link>
-                    </li>
-                </ul>
-            </div>
+        
+        <div className="navbar mt-3 justify-content-between shadow-lg p-3 border-2 container-xl">
+            <Link className=" text-decoration-none fs-2 fw-bold text-color" href={"/"}>Blogs</Link>
+            {status === 'authenticated' ? (
+                <button onClick={() => signOut()} className="btn btn-bd-primary">Sign Out</button>
+            ) : (
+                <button onClick={() => signIn("google")} className="btn btn-bd-primary">Sign In</button>
+            )}
+            
         </div>
+        
     );
 }
 
