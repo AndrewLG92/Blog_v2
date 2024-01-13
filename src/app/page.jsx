@@ -1,9 +1,9 @@
-import UserInfo from "@/components/UserInfo";
+import GoogleSignIn from "@/components/GoogleSignIn";
 
 export default function Home() {
   return (
     <main>
-      <UserInfo />
+      <GoogleSignIn />
     </main>
   );
 }

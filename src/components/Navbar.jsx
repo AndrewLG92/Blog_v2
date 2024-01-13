@@ -1,6 +1,7 @@
 "use client"
 
 import Link from 'next/link';
+import '@/styles/navbar.scss';
 import { useState } from 'react';
 import { signIn, signOut, useSession } from 'next-auth/react';
 

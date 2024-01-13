@@ -3,6 +3,7 @@
 
 import Image from "next/image";
 import { signIn } from "next-auth/react";
+import '@/styles/googlebtn.scss';
 
 export default function SignInBtn() {
     return (

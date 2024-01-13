@@ -1,0 +1,17 @@
+.navbar {
+    background-color: rgb(219, 216, 216);
+    border: solid gray;
+    border-radius: 10px;
+
+    button {
+        background-color: rgb(86, 86, 235);
+    }
+
+    .btn-bd-primary {
+        --bs-btn-color: var(--bs-white);
+    }
+    
+    .text-color {
+        color: rgb(86, 86, 235);
+    }
+}
