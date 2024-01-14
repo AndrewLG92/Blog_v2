@@ -3,12 +3,9 @@
     border: solid gray;
     border-radius: 10px;
 
-    button {
-        background-color: rgb(86, 86, 235);
-    }
-
     .btn-bd-primary {
         --bs-btn-color: var(--bs-white);
+        background-color: rgb(86, 86, 235);
     }
     
     .text-color {

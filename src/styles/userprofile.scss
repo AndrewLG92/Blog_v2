@@ -13,6 +13,14 @@
                         margin: 5px;
                     }
                 }
+
+                .card-footer {
+
+                    .btn-bd-primary {
+                        --bs-btn-color: var(--bs-white);
+                        background-color: rgb(86, 86, 235);
+                    }                  
+                }
             }
         }
     }

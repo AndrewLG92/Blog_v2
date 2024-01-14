@@ -31,8 +31,8 @@ export default function UserProfile() {
 
     return (
         <div className="container-fluid mt-lg-4 h-auto w-75 bg-black">
-            <div className="row gap-5">
-                <div className="col-1 card p-3 w-25">
+            <div className="grid gap-5 row">
+                <div className="g-col-6 card p-3 w-25">
                     <div className="card-body">
                         <center>
                             <Image alt="Users Icon" className="mi rounded-circle img-thumbnail" src={session?.user?.image} width={60} height={60} />
@@ -46,8 +46,11 @@ export default function UserProfile() {
                         </center>
                     </div>
                 </div>
-                <div className="col card w-auto">
+                <div className="g-col-6 card border-3">
                     <div className="card-body">
+                        <div className="card-title">
+                            <h3>Enter a Meaningful Quote!</h3>
+                        </div>
                         {editorLoaded ? <CKEditor 
                             editor={CustEditor}
                             data={data}
@@ -60,7 +63,9 @@ export default function UserProfile() {
                                 setData(data);
                             }}
                         /> : <p>Error...</p>}
-                        <button onClick={textData}>Click Me</button>
+                        <div className="card-footer">
+                            <button className="btn btn-bd-primary" onClick={textData}>Post Quote</button>
+                        </div>
                     </div>
                 </div>
             </div>
