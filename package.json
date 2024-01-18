@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@ckeditor/ckeditor5-react": "^6.2.0",
+    "@ckeditor/ckeditor5-theme-lark": "^41.0.0",
     "bootstrap": "^5.3.2",
     "ckeditor5-custom-build": "file:ckeditor5",
+    "html-react-parser": "^5.1.1",
     "mongodb": "^6.3.0",
     "mongoose": "^8.0.4",
     "next": "14.0.4",

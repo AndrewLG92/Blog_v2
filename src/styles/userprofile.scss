@@ -1,7 +1,9 @@
 .container-fluid {
+    
 
     .row {
         .card {
+            background-color: rgb(219, 216, 216);
             
             .card-body {
                 center {
@@ -17,7 +19,6 @@
                 .card-footer {
 
                     .btn-bd-primary {
-                        --bs-btn-color: var(--bs-white);
                         background-color: rgb(86, 86, 235);
                     }                  
                 }
