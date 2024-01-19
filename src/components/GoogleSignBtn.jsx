@@ -6,6 +6,7 @@ import { signIn } from "next-auth/react";
 import '@/styles/googlebtn.scss';
 
 export default function SignInBtn() {
+
     return (
         <div className="container text-center sib">
             <div className="row">
