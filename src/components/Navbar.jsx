@@ -12,6 +12,7 @@ function NavBar() {
         
         <div className="navbar mt-3 justify-content-between shadow-lg p-3 border-2 container-xl">
             <Link className=" text-decoration-none fs-2 fw-bold text-color" href={"/"}>Blogs</Link>
+            <Link className=" text-decoration-none fs-2 fw-bold text-color" href={"/publicpost"}>Public Post</Link>
             {status === 'authenticated' ? (
                 <button onClick={() => signOut()} className="btn btn-bd-primary">Sign Out</button>
             ) : (

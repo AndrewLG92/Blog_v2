@@ -5,6 +5,24 @@
         .card {
             background-color: rgb(219, 216, 216);
             
+            .card-header {
+                .container {
+                    .bg {
+                        background-color: rgb(86, 86, 235);
+
+                        .i-color {
+                            color: white;
+                        }
+                    }
+                    .bg-red {
+                        background-color: rgb(209, 49, 49);
+                        .i-color {
+                            color: white;
+                        }
+                    }
+                }
+            }
+
             .card-body {
                 center {
                     .bar {
