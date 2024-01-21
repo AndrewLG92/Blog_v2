@@ -1,9 +1,11 @@
-import GoogleIn from '@/components/GoogleSignIn';
+import GoogleIn from '@/components/GoogleSignBtn';
 
 export default function Login() {
     return (
         <>
+
             <GoogleIn />
+
         </>
     )
 }
