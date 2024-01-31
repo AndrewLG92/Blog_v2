@@ -3,15 +3,12 @@
 import Link from 'next/link';
 import '@/styles/navbar.scss';
 import { signOut, useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
 
 export default function NavBar() {
     const {status} = useSession();
-    const router = useRouter();
     
     const HandleSignOut = () => {
-        signOut()
-        router.push('/login');
+        signOut({callbackUrl: '/login'});
     }
 
     return (

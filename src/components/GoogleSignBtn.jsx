@@ -4,15 +4,12 @@
 import Image from "next/image";
 import { signIn } from "next-auth/react";
 import '@/styles/googlebtn.scss';
-import { useRouter } from "next/navigation";
 
 export default function SignInBtn() {
 
-    const router = useRouter();
 
     const HandleSignIn = () => {
-        signIn("google")
-        router.push('/userprofile');
+        signIn("google", { callbackUrl: '/userprofile'});
     }
 
     return (

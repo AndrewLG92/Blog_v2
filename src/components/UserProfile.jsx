@@ -51,13 +51,14 @@ export default function UserProfile() {
                 <div className="col-1 card p-3 w-25 mx-auto border-5 shadow-lg">
                     <div className="card-body">
                         <center>
-                            <Image alt="Users Icon" className="mi rounded-circle img-thumbnail" src={session?.user?.image} width={60} height={60} />
+                            {session?.user?.image && (<Image alt="Users Icon" className="mi rounded-circle img-thumbnail" src={session?.user?.image} width={60} height={60} /> )}
                             <div className="bar"></div>
                             <div className="card-title">
-                                Name: <span>{session?.user?.name}</span>
+                                Name: <span>{session?.user?.name}</span> <br></br>
+                                Email: <span>{session?.user?.email}</span>
                             </div>
                             <div className="card-title">
-                                Email: <span>{session?.user?.email}</span>
+                                
                             </div>
                         </center>
                     </div>
@@ -65,7 +66,7 @@ export default function UserProfile() {
                 <div className="col-2 card border-5 w-50 shadow-lg mx-auto">
                     <div className="card-body">
                         <div className="card-title">
-                            <h3>Enter a Meaningful Quote!</h3>
+                            <h3>What's going on in your head?</h3>
                         </div>
                         {editorLoaded ? <CKEditor 
                             editor={CustEditor}
