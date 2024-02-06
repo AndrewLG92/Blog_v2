@@ -1,0 +1,24 @@
+h1 {
+    color: white;
+}
+
+.slide-up {
+    animation: slideUp 0.5s ease-in-out;
+}
+  
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.card:hover {
+    transform: scale(1.05); /* Scale up the card on hover */
+    transition: transform 0.3s ease; /* Add smooth transition */
+}

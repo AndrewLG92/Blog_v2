@@ -1,6 +1,7 @@
 "use client"
 
 import Link from 'next/link';
+import React, { useEffect } from 'react';
 import '@/styles/navbar.scss';
 import { signOut, useSession } from 'next-auth/react';
 
@@ -11,17 +12,40 @@ export default function NavBar() {
         signOut({callbackUrl: '/login'});
     }
 
+    useEffect(() => {
+        const stop = 4; // Number of elements
+        let i = 1;
+    
+        const intervalId = setInterval(() => {
+          if (i > stop) {
+            clearInterval(intervalId); // Stop the interval when i exceeds stop
+            return;
+          }
+          document.getElementById('len' + i)?.classList.toggle('bounce');
+          i++;
+        }, 500);
+    
+        // Clean up function to clear interval when component unmounts
+        return () => clearInterval(intervalId);
+    }, []); // Empty dependency array to run effect only once
+
     return (
         
-        <div className="navbar mt-3 justify-content-between shadow-lg p-3 border-2 container-xl">
-            <Link className=" text-decoration-none fs-2 fw-bold text-color" href="/">Blogs</Link>
-            <Link className=" text-decoration-none fs-2 fw-bold text-color" href="/publicpost">Public Post</Link>
-            {status === 'authenticated' ? (
-                <button onClick={HandleSignOut} className="btn btn-bd-primary">Sign Out</button>
-            ) : (
-                <Link href="/login" className="btn btn-bd-primary">Sign In</Link>
-            )}
-            
+        <div className="container mt-4">
+            <nav className="navbar navbar-inverse">
+                <div className="container-fluid justify-content-center">
+                    <ul className="nav navbar-nav">
+                        <li className="nav-item"><Link id="len1" className="hoverable" href="/">Home</Link></li>
+                        <li className="nav-item"><Link id="len2" className="hoverable" href="/about">About</Link></li>
+                        {status === 'authenticated' ? (
+                            <li className="nav-item"><button id="len3" onClick={HandleSignOut} className="btn btn-bd-primary">Sign Out</button></li>
+                        ) : (
+                            <li className="nav-item"><Link id="len3" className="hoverable" href="/login">Login</Link></li>
+                        )}
+                        
+                    </ul>
+                </div>
+            </nav>
         </div>
         
     );

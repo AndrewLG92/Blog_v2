@@ -1,0 +1,16 @@
+
+main {
+    center {
+        .container {
+            .row {
+                .card{
+                    background-color: aqua;
+
+                    .card-header {
+                        background-color: rgb(89, 219, 109);
+                    }
+                }
+            }
+        }
+    }
+}
