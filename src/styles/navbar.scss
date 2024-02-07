@@ -97,6 +97,15 @@ body {
     li {
         margin-left: 3em;
         margin-right: 3em;
+        button {
+            text-transform:uppercase;
+            font-weight:600;
+            background-color: rgba(0,0,0,1);
+            text-decoration: none;
+            color: white;
+            border-style: none;
+            transition: .5s color ease-in-out;
+        }
         a{
             text-decoration: none;
             color: white;

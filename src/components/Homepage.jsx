@@ -23,9 +23,9 @@ const HomePage = () => {
 
     // Data for the cards
     const cardData = [
-      { title: 'Card 1', text: 'This is the first card' },
-      { title: 'Card 2', text: 'This is the second card' },
-      { title: 'Card 3', text: 'This is the third card' },
+      { title: 'Career' },
+      { title: 'Hobbies' },
+      { title: 'Events' },
     ];
 
     return cardData.map((card, index) => (
@@ -33,7 +33,6 @@ const HomePage = () => {
         <Card className="slide-up card">
           <Card.Body>
             <Card.Title>{card.title}</Card.Title>
-            <Card.Text>{card.text}</Card.Text>
           </Card.Body>
         </Card>
       </div>

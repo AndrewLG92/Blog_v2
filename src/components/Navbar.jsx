@@ -38,7 +38,8 @@ export default function NavBar() {
                         <li className="nav-item"><Link id="len1" className="hoverable" href="/">Home</Link></li>
                         <li className="nav-item"><Link id="len2" className="hoverable" href="/about">About</Link></li>
                         {status === 'authenticated' ? (
-                            <li className="nav-item"><button id="len3" onClick={HandleSignOut} className="btn btn-bd-primary">Sign Out</button></li>
+                            <li className="nav-item"><button id="len3" onClick={HandleSignOut} className="hoverable">Sign Out</button></li>,
+                            <li className="nav-item"><Link id="len4" className="hoverable" href="/userprofile">Profile</Link></li>
                         ) : (
                             <li className="nav-item"><Link id="len3" className="hoverable" href="/login">Login</Link></li>
                         )}
