@@ -1,9 +1,10 @@
-import GoogleIn from '@/components/GoogleSignBtn';
+import LoginForm from '@/components/RegSignInForm';
 
 export default function Login() {
+
     return (
         <>
-            <GoogleIn />
+            <LoginForm />
         </>
     )
 }

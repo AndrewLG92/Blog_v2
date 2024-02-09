@@ -11,6 +11,19 @@ export default function NavBar() {
     const HandleSignOut = () => {
         signOut({callbackUrl: '/login'});
     }
+    
+    const DisplayProfileLink = () => {
+        if(status === 'authenticated') {
+            return (<li className="nav-item"><Link id="len4" className="hoverable" href="/userprofile">Profile</Link></li>);
+        }
+    }
+    const SignOutLoginBtn = () => {
+        if(status === 'authenticated') {
+            return (<li className="nav-item"><button id="len3" onClick={HandleSignOut} className="hoverable">Sign Out</button></li>);
+        }else{
+            return (<li className="nav-item"><Link id="len3" className="hoverable" href="/login">Login</Link></li>);
+        }
+    }
 
     useEffect(() => {
         const stop = 4; // Number of elements
@@ -37,13 +50,8 @@ export default function NavBar() {
                     <ul className="nav navbar-nav">
                         <li className="nav-item"><Link id="len1" className="hoverable" href="/">Home</Link></li>
                         <li className="nav-item"><Link id="len2" className="hoverable" href="/about">About</Link></li>
-                        {status === 'authenticated' ? (
-                            <li className="nav-item"><button id="len3" onClick={HandleSignOut} className="hoverable">Sign Out</button></li>,
-                            <li className="nav-item"><Link id="len4" className="hoverable" href="/userprofile">Profile</Link></li>
-                        ) : (
-                            <li className="nav-item"><Link id="len3" className="hoverable" href="/login">Login</Link></li>
-                        )}
-                        
+                        {SignOutLoginBtn()}
+                        {DisplayProfileLink()}
                     </ul>
                 </div>
             </nav>

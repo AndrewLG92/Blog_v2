@@ -2,14 +2,18 @@
 
     display: block;
     position: relative;
-    top: 20em;
 
-    .img {
-        margin-right: .5em;
-    }
+    button {
 
-    .lht {
-        position: relative;
-        top: 2px;
+        background-color: white;
+
+        .img {
+            margin-right: .5em;
+        }
+
+        .lht {
+            position: relative;
+            top: 2px;
+        }
     }
-}
+}   
