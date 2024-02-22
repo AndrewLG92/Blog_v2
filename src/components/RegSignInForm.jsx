@@ -6,24 +6,29 @@ import { useRouter } from 'next/navigation';
 import { Card, Form, Button } from 'react-bootstrap';
 import SignInBtn from './GoogleSignBtn';
 import "@/styles/regsigninform.scss";
+import { Axios } from 'axios';
 
 const LoginForm = () => {
   const router = useRouter();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
   const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Here you can add your login logic, such as making an API call to authenticate the user
-    // For demonstration purposes, let's just validate the email and password
-    if (email === 'example@example.com' && password === 'password') {
-      // If the credentials are valid, redirect to the dashboard or home page
-      router.push('/dashboard');
-    } else {
-      setError('Invalid email or password');
+    try {
+      setLoading(true);
+      const response = await Axios.post("/api/users/login", user);
+      router.push("/userprofile");
+    } catch(error) {
+      setError("Login Failed", error.message);
+    }finally {
+      setLoading(false);
     }
+    
   };
 
   return (
@@ -34,7 +39,7 @@ const LoginForm = () => {
             <Card className="w-50">
                 <Card.Body>
                     <Card.Header className="header">
-                        <h1 className="text-center mb-4">Login</h1>
+                        <h1 className="text-center mb-4">{loading ? "Processing" : "Login"}</h1>
                     </Card.Header>
                         
                     {error && <div className="alert alert-danger">{error}</div>}
@@ -43,8 +48,8 @@ const LoginForm = () => {
                             <Form.Label>Email:</Form.Label>
                             <Form.Control
                                 type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                value={user.email}
+                                onChange={(e) => setUser({...user, email: e.target.value})}
                                 required
                             />
                         </Form.Group>
@@ -52,8 +57,8 @@ const LoginForm = () => {
                             <Form.Label>Password:</Form.Label>
                             <Form.Control
                                 type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
+                                value={user.password}
+                                onChange={(e) => setUser({...user, password: e.target.value})}
                                 required
                             />
                         </Form.Group>

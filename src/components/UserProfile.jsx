@@ -1,6 +1,7 @@
 "use client";
 
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import '@/styles/userprofile.scss';
@@ -10,7 +11,14 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 
 export default function UserProfile() {
 
-    
+    const router = useRouter();
+    const [data, setData] = useState('');
+    const { data: session, status } = useSession();
+
+    if(status === 'unauthenticated') {
+        router.push('/login');
+    }
+
     const editorRef = useRef();
     const [editorLoaded, setEditorLoaded] = useState( false );
     const { CKEditor, CustEditor} = editorRef.current || {}
@@ -20,12 +28,10 @@ export default function UserProfile() {
             CKEditor: require('@ckeditor/ckeditor5-react').CKEditor,
             CustEditor: require('ckeditor5-custom-build'),
         }
-        setEditorLoaded( true )
+        setEditorLoaded( true );
     }, []);
 
-    const [data, setData] = useState('');
-
-    const { data: session } = useSession();
+    
 
     const textData = () => {
         //const objData = TextParse(data);
