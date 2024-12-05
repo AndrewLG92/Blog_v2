@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import React, { useEffect } from 'react';
-import '@/styles/navbar.scss';
+import '../styles/navbar.scss';
 import { signOut, useSession } from 'next-auth/react';
 
 export default function NavBar() {

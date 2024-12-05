@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Card, Form, Button } from 'react-bootstrap';
 import SignInBtn from './GoogleSignBtn';
-import "@/styles/regsigninform.scss";
+import "../styles/regsigninform.scss";
 import { Axios } from 'axios';
 
 const LoginForm = () => {

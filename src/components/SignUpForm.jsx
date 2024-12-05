@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Card, Form, Button } from 'react-bootstrap';
-import '@/styles/signupform.scss';
+import '../styles/signupform.scss';
 import {useRouter} from "next/navigation";
 import axios from "axios";
 

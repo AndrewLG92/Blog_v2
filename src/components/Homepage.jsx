@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import '@/styles/homepage.scss'; // Import your custom styles if needed
+import '../styles/homepage.scss'; // Import your custom styles if needed
 import { Card } from 'react-bootstrap';
 
 const HomePage = () => {

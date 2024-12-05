@@ -4,9 +4,8 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import '@/styles/userprofile.scss';
+import '../styles/userprofile.scss';
 //import TextParse from "html-react-parser";
-import '@ckeditor/ckeditor5-theme-lark';
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 export default function UserProfile() {
@@ -19,17 +18,7 @@ export default function UserProfile() {
         router.push('/login');
     }
 
-    const editorRef = useRef();
-    const [editorLoaded, setEditorLoaded] = useState( false );
-    const { CKEditor, CustEditor} = editorRef.current || {}
-
-    useEffect(() => {
-        editorRef.current = {
-            CKEditor: require('@ckeditor/ckeditor5-react').CKEditor,
-            CustEditor: require('ckeditor5-custom-build'),
-        }
-        setEditorLoaded( true );
-    }, []);
+    
 
     
 
@@ -41,15 +30,7 @@ export default function UserProfile() {
         setData('');
     }
 
-    const handleOnReady = (editor) => {
-        // You can store the "editor" and use when it is needed.
-        console.log('Editor is ready to use!', editor);
-    }
-
-    const handleOnChange = (event, editor) => {
-        const data = editor.getData();
-        setData(data);
-    }
+    
 
     return (
         <div className="container-fluid mt-lg-4 h-auto w-75">
@@ -74,12 +55,7 @@ export default function UserProfile() {
                         <div className="card-title">
                             <h3>What's going on in your head?</h3>
                         </div>
-                        {editorLoaded ? <CKEditor 
-                            editor={CustEditor}
-                            data={data}
-                            onReady={handleOnReady}
-                            onChange={handleOnChange}
-                        /> : <p>Error...</p>}
+                    
                         <div className="card-footer">
                             <button className="btn btn-bd-primary text-white" onClick={textData}>Post Quote</button>
                         </div>

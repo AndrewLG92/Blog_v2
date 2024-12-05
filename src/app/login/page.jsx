@@ -1,4 +1,4 @@
-import LoginForm from '@/components/RegSignInForm';
+import LoginForm from '../../components/RegSignInForm';
 
 export default function Login() {
 
